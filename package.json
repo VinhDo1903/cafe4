@@ -27,7 +27,7 @@
     "bootstrap": "^5.3.3",
     "express": "^4.14.0",
     "grunt": "^1.0.1",
-    "grunt-sass": "^3.1.0",  // Đổi sang sử dụng grunt-sass
+    "grunt-sass": "^3.1.0",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "^5.0.0",
@@ -39,7 +39,7 @@
     "jsdoc": "^4.0.3",
     "vue": "^3.5.12",
     "vue-resource": "^1.0.3",
-    "vue-router": "^4.4.5" 
+    "vue-router": "^4.4.5"
   },
   "dependencies": {
     "express": "^4.14.0",
