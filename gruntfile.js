@@ -2,7 +2,7 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    
+
     jshint: {
       files: ['js/*.js']
     },
@@ -13,7 +13,7 @@ module.exports = function(grunt) {
         sourceMap: true
       },
       files: {
-        'css/styles.css': 'scss/styles.scss' // Từ file SCSS sang CSS
+        'css/styles.css': 'scss/styles.scss' // Đường dẫn đến file SCSS và file CSS đầu ra
       }
     }
   });
