@@ -1,5 +1,4 @@
 module.exports = function(grunt) {
-  // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
@@ -9,19 +8,17 @@ module.exports = function(grunt) {
 
     sass: {
       options: {
-        implementation: require('sass'), // Sử dụng Dart Sass
+        implementation: require('sass'), 
         sourceMap: true
       },
       files: {
-        'css/styles.css': 'scss/styles.scss' // Đường dẫn đến file SCSS và file CSS đầu ra
+        'css/styles.css': 'scss/styles.scss' 
       }
     }
   });
 
-  // Load the plugins
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-sass');  // Sử dụng grunt-sass
+  grunt.loadNpmTasks('grunt-sass');  
 
-  // Default task(s).
   grunt.registerTask('default', ['jshint', 'sass']);
 };
