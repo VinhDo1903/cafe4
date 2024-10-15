@@ -1,24 +1,35 @@
 module.exports = function(grunt) {
-  grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
+    // Định nghĩa cấu hình
+    grunt.initConfig({
+        pkg: grunt.file.readJSON('package.json'),
+        
+        // Cấu hình Sass
+        sass: {
+            options: {
+                implementation: require('sass'), // Sử dụng thư viện Sass đã cài
+            },
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: 'sass/',
+                    src: ['*.scss'],
+                    dest: 'css/',
+                    ext: '.css'
+                }]
+            }
+        },
 
-    jshint: {
-      files: ['js/*.js']
-    },
+        // Cấu hình jshint
+        jshint: {
+            files: ['Gruntfile.js', 'js/*.js']
+        },
+    });
 
-    sass: {
-      options: {
-        implementation: require('sass'), 
-        sourceMap: true
-      },
-      files: {
-        'css/styles.css': 'scss/styles.scss' 
-      }
-    }
-  });
+    // Tải các plugin cần thiết
+    grunt.loadNpmTasks('grunt-sass');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
 
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-sass');  
-
-  grunt.registerTask('default', ['jshint', 'sass']);
+    // Đăng ký task mặc định
+    grunt.registerTask('default', ['jshint', 'sass']);
+    grunt.registerTask('build', ['default']); // Đăng ký task build
 };
