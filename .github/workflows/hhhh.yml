@@ -3,7 +3,7 @@ name: Build and Deploy Node.js app to Azure Web App
 on:
   push:
     branches:
-      - master  # Thay đổi nếu bạn sử dụng nhánh khác
+      - master  
 
 jobs:
   build:
@@ -16,7 +16,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '18.x'  # Chọn phiên bản Node.js mà bạn đang sử dụng
+          node-version: '18.x'  
           cache: 'npm'
 
       - name: Install dependencies
@@ -29,11 +29,11 @@ jobs:
         run: npm run build
 
       - name: Check build directory
-        run: ls -R build  # Kiểm tra nội dung của thư mục build
+        run: ls -R ./build 
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
         with:
-          app-name: cafeshop3  # Tên ứng dụng Azure của bạn
-          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}  # Publish profile được lưu trong GitHub Secrets
-          package: build  # Chỉ định thư mục chứa các file đã được xây dựng
+          app-name: cafeshop3  
+          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}  
+          package: build  
