@@ -4,7 +4,8 @@
   "description": "simple point of sale application",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"No tests specified\" && exit 0"
+    "test": "echo \"No tests specified\" && exit 0",
+    "update-browserslist": "npx browserslist --update-db"
   },
   "repository": {
     "type": "git",
@@ -37,7 +38,7 @@
     "jsdoc": "^4.0.3",
     "vue": "^3.5.12",
     "vue-resource": "^1.0.3",
-    "vue-router": "^4.4.5" 
+    "vue-router": "^4.4.5"
   },
   "dependencies": {
     "express": "^4.14.0",
