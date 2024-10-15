@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: app.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: app.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/*
+* @Author: alireza-saberi
+* @Date:   2016-10-30 23:29:55
+* @Last Modified by:   alireza-saberi
+* @Last Modified time: 2016-11-03 08:52:49
+*/
+var espressos = {  type:  'Espresso',
+                   varieties: [{    name:'Caffè Mocha',
+                                    count: 0,
+                                    baseprice: 5.99,
+                                    src: 'img/mocha.jpg',
+                                    modifiers: [{   name: 'Chocolate Syrup',
+                                                    price: 0.25,
+                                                    count: 0
+                                                },  
+                                                {   
+                                                    name: 'Whipped Cream',
+                                                    price: 0.3, 
+                                                    count: 0
+                                                }]
+                                },
+                                {
+                                    name:'Caffè Americano',
+                                    count: 0,
+                                    baseprice: 5.99,
+                                    src: 'img/americano.jpg',
+                                    modifiers: [{   name: 'Chocolate Syrup',
+                                                    price: 0.25,
+                                                    count: 0
+                                                },  
+                                                {   
+                                                    name: 'Whipped Cream',
+                                                    price: 0.3, 
+                                                    count: 0
+                                                }]
+                                }]
+                };
+
+
+var coffees = {     type:  'Coffee',
+                    varieties: [
+                        {
+                            name:'Caffè Misto',
+                            count: 0,
+                            baseprice: 2.99,
+                            src: 'img/mitso.jpg',
+                            modifiers: [{   name: 'Suger',
+                                            price: 0.2,
+                                            count: 0
+                                        },
+                                        {   name: 'Milk',
+                                            price: 0.5,
+                                            count: 0
+                                        }] 
+                        },
+                        {
+                            name:'Iced Coffee',
+                            count: 0,
+                            baseprice: 1.99,
+                            src: 'img/iced_coffee.jpg',
+                            modifiers: [{   name: 'Suger',
+                                            price: 0.2,
+                                            count: 0
+                                        },
+                                        {   name: 'Milk',
+                                            price: 0.5,
+                                            count: 0
+                                        }]  
+                        }
+                    ]
+            };
+
+var teas = {        type:  'Tea',
+                    varieties: [
+                    {
+                        name:'Earl Grey',
+                        count: 0,
+                        baseprice: 0.99,
+                        src: 'img/earl_gray.jpg',
+                        modifiers: [{ name: 'Suger',
+                         price: 0.2,
+                         count: 0
+                        },
+                        {name: 'Milk',
+                         price: 0.5,
+                         count: 0
+                        }]},
+                    {
+                        name:'Royal English Breakfast Brewed Tea',
+                        count: 0,
+                        baseprice: 1.99,
+                        src: 'img/english_breakfast.jpg',
+                        modifiers: [{ name: 'Suger',
+                         price: 0.2,
+                         count: 0
+                        },
+                        {name: 'Milk',
+                         price: 0.5,
+                         count: 0
+                        }]
+                    }
+                    ]
+            };
+
+var smoothies = {   type:  'Smoothie',
+                    varieties: [{
+                        name: 'Chocolate Smoothie',
+                        count : 0,
+                        baseprice: 4.99,
+                        src: 'img/chocolate_smoothie.jpg',
+                        modifiers: [{ name: 'Smile',
+                            price: 0,
+                            count: 0
+                        },
+                        {   name: 'Huge',
+                            price: 0,
+                            count: 0
+                        }]
+                    }, 
+                    {
+                        name: 'Orange Mango Smoothie',
+                        count : 0,
+                        baseprice: 3.99,
+                        src: 'img/orange_mango_smoothie.jpg',
+                        modifiers: [{ name: 'Smile',
+                            price: 0,
+                            count: 0
+                        },
+                        {   name: 'Huge',
+                            price: 0,
+                            count: 0
+                        }]
+                    }]
+                };
+
+var drinks = [
+     espressos,
+     coffees,
+     teas,
+     smoothies
+];
+
+
+var app = new Vue({
+    el: '#app',
+    data: {
+        drinks : drinks,
+        total: 0
+    },
+    // ready: function(){
+    //     this.loadDrinks();
+    // },
+    methods: {
+        /**
+        * Total amount of order is a calculated tax free when the user press order
+        * @author Ali
+        * @name order
+        */
+        order : function(){
+            var main_price = 0, side_price = 0;
+            for (var i = 0; i &lt; this.drinks.length; i++ ){
+                for(var j = 0; j &lt; this.drinks[i].varieties.length; j++){
+                    main_price = main_price + (this.drinks[i].varieties[j].baseprice) * (this.drinks[i].varieties[j].count);
+                    for(var k = 0; k &lt; this.drinks[i].varieties[j].modifiers.length; k++){
+                        side_price = side_price + (this.drinks[i].varieties[j].modifiers[k].price * this.drinks[i].varieties[j].modifiers[k].count);
+                    }
+                }
+            }
+            this.total = main_price + side_price;
+            }
+        //     ,
+        // loadDrinks: function(){
+        //     this.$http.get('/drinks').then(function(response){
+        //         //success callback
+        //         this.drinks = response;
+        //     }, function(error){
+        //         // error callback
+        //         console.log("No drink for you today!");
+        //     });
+        // }
+        // ,
+        // buy : function(){
+        //     this.$http.get('/pay', this.total).then(function(reposonce){
+        //         console.log("Payment is done");
+        //     }, function(error){
+        //         console.log("Error in payment");
+        //     });
+        // }
+    }
+});
+
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#order">order</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.2</a> on Thu Nov 03 2016 08:56:09 GMT-0400 (EDT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

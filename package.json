@@ -1,0 +1,50 @@
+{
+  "name": "pos",
+  "version": "1.0.0",
+  "description": "simple point of sale application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alireza-saberi/pos.git"
+  },
+  "keywords": [
+    "pos",
+    "MVVM",
+    "SASS"
+  ],
+  "author": "Alireza Saberi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alireza-saberi/pos/issues"
+  },
+  "homepage": "https://github.com/alireza-saberi/pos#readme",
+  "devDependencies": {
+    "bootstrap": "^5.3.3",
+    "express": "^4.14.0",
+    "grunt": "^1.0.1",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^5.0.0",
+    "grunt-contrib-jshint": "^3.2.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^5.2.2",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-processhtml": "^0.4.1",
+    "jquery": "^3.1.1",
+    "jsdoc": "^4.0.3",
+    "vue": "^3.5.12",
+    "vue-resource": "^1.0.3",
+    "vue-router": "^4.4.5" 
+  },
+  "dependencies": {
+    "express": "^4.14.0",
+    "glob": "^11.0.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "maxmin": "^4.1.0",
+    "meow": "^13.2.0",
+    "pretty-bytes": "^6.1.1"
+  }
+}
