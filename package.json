@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"No tests specified\" && exit 0",
-    "build": "grunt"
+    "build": "grunt",
+    "update-browserslist": "npx browserslist --update-db"
   },
   "repository": {
     "type": "git",
