@@ -9,6 +9,7 @@ module.exports = function(grunt) {
 
     sass: {
       options: {
+        implementation: require('sass'), // Thêm dòng này
         sourceMap: true
       },
       files: {
