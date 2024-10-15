@@ -9,11 +9,11 @@ module.exports = function(grunt) {
 
     sass: {
       options: {
-        implementation: require('sass'), // Thêm dòng này
+        implementation: require('sass'), // Sử dụng Dart Sass
         sourceMap: true
       },
       files: {
-        'css/styles.css': 'scss/styles.scss'
+        'css/styles.css': 'scss/styles.scss' // Từ file SCSS sang CSS
       }
     }
   });
